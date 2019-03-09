@@ -20,11 +20,13 @@ news_total = []
 
 
 def news163_connect(catagory, table_name):
-    for n in range(0, 1):
-        url_0 = 'https://3g.163.com/touch/reconstruct/article/list/{0}/{1}-10.html'.format(catagory, n)
+    for n in range(0, 301):
+        url_0 = 'https://3g.163.com/touch/reconstruct/article/list/{0}/{1}-20.html'.format(catagory, n)
         # url_1 = url_0
         mydata = requests.get(url_0, headers=header).text
-        mydata1 = re.findall(r'[(](.*?)[)]', mydata)
+        print(type(mydata))
+        p1 = re.compile(r'[(](.*)[)]', re.S)
+        mydata1 = re.findall(p1, mydata)
         # print(len(mydata1))
         # print(mydata1[0])
         # wbdata = requests.get(url, headers=header).text
